@@ -1,0 +1,10 @@
+import math
+
+def circle_area(radius: float) -> float:
+    return math.pi * radius**2 / 2
+
+def triangle_area(height: float, width: float) -> float:
+    return height * width / 2
+
+def square_area(height: float, width: float) -> float:
+    return height * width
