@@ -1,0 +1,38 @@
+[
+    {
+        "gender": "M",
+        "Age": "40",
+        "Ventilated": "1",
+        "Time_between_positive_and_hospitalization": "2",
+        "Length_of_hospitalization": "2",
+        "Time_between_positive_and_recovery": "5",
+        "Is_vaccinated": "Y"
+    },
+    {
+        "gender": "M",
+        "Age": "49",
+        "Ventilated": "1",
+        "Time_between_positive_and_hospitalization": "1",
+        "Length_of_hospitalization": "23",
+        "Time_between_positive_and_recovery": "24",
+        "Is_vaccinated": "Y"
+    },
+    {
+        "gender": "M",
+        "Age": "28",
+        "Ventilated": "1",
+        "Time_between_positive_and_hospitalization": "9",
+        "Length_of_hospitalization": "14",
+        "Time_between_positive_and_recovery": "24",
+        "Is_vaccinated": "Y"
+    },
+    {
+        "gender": "M",
+        "Age": "50",
+        "Ventilated": "1",
+        "Time_between_positive_and_hospitalization": "8",
+        "Length_of_hospitalization": "1",
+        "Time_between_positive_and_recovery": "10",
+        "Is_vaccinated": "Y"
+    }
+]

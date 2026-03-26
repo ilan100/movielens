@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie ratings calculator</title>
+</head>
+<body>
+    <h1>Movie Ratings Calculator</h1>
+    <form method="POST">
+        <label for="movie_title">Enter Movie Title:</label>
+        <input type="text" name="movie_title" id="movie_title" value="{{ movie_title }}">
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if result == -1 %}
+        <p style="color: red;">Error: Movie not found!</p>
+    {% elif result is not none %}
+        <h2>Result: {{ result }}</h2>
+    {% endif %}
+    
+    {% if movie is not none %}
+    	<h2>{{ movie.Title }} ({{ movie.Year }})</h2>
+	<p><strong>IMDB Rating:</strong> {{ movie.imdbRating }}</p>
+    	<p><strong>Genre:</strong> {{ movie.Genre }}</p>
+    	<p><strong>Director:</strong> {{ movie.Director }}</p>
+    	<p><strong>Plot:</strong> {{ movie.Plot }}</p>
+	<img src="{{ movie.Poster }}" alt="Poster">
+    {% endif %}
+</body>
+</html>

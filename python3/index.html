@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Calculator</title>
+</head>
+<body>
+    <h1>Movie Calculator</h1>
+    <form method="POST">
+        <label for="movie_title">Enter Movie Title:</label>
+        <input type="text" name="movie_title" id="movie_title" value="{{ movie_title }}">
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if result is not none %}
+        <h2>Result: {{ result }}</h2>
+    {% endif %}
+</body>
+</html>

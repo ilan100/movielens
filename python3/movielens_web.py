@@ -6,6 +6,7 @@ import requests
 
 app = Flask(__name__)
 
+ML = movielens.MovieLens()
 
 # --- Internal function ---
 def calculate_number(movies_data: movielens.MovieLens, movie_title: str) -> float:
@@ -34,22 +35,32 @@ def get_omdb_movie_data(title: str):
         return None
     return data
 
+def show_movie_list(movies_data: movielens.MovieLens):
+    pass
+
 # --- Routes ---
 @app.route("/", methods=["GET", "POST"])
 def home():
-    result = 0
+    result = -1
     movie_title = ""
-    ML = movielens.MovieLens()
+    #ML = movielens.MovieLens()
+    action = request.form.get("action")
+    omdb_data = None
 
     if request.method == "POST":
-        movie_title = request.form.get("movie_title", "")
-        result = calculate_number(ML, movie_title)
+        if action == "calculate":
+            movie_title = request.form.get("movie_title")
+            result = calculate_number(ML, movie_title)
+        elif action == "fetch":
+            if (ML.init is False):
+                ML.load_and_prepare_data()
 
-    omdb_data = None
-    if result > -1:
-        omdb_data = get_omdb_movie_data(movie_title)
+        omdb_data = None
+        if result > -1:
+            omdb_data = get_omdb_movie_data(movie_title)
 
-    return render_template("index.html", result=result, movie_title=movie_title, movie=omdb_data)
+    return render_template("index.html", result=result,
+                           movie_title=movie_title, action=action, movie=omdb_data, movies = ML.movies)
 
 #-------------------------------------------------------------------------------------------------------
 
